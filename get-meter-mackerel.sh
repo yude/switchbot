@@ -3,7 +3,7 @@
 DEVICE_ID=
 TOKEN=
 
-json=$(/usr/bin/curl -X GET "https://api.switch-bot.com/v1.0/devices/${DEVICE_ID}/status" -H "Authorization: ${TOKEN}")
+json=$(/usr/bin/curl -s -X GET "https://api.switch-bot.com/v1.0/devices/${DEVICE_ID}/status" -H "Authorization: ${TOKEN}")
 humid=$(echo $json | jq '.body.humidity')
 temp=$(echo $json | jq '.body.temperature')
 
